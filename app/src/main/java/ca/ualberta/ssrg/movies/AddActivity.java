@@ -21,7 +21,7 @@ public class AddActivity extends Activity {
 
 	private MoviesController moviesController;
 	private Movies movies;
-	
+	// movies isn't synced... isues???
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
