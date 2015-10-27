@@ -11,6 +11,9 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+
 import ca.ualberta.ssrg.androidelasticsearch.R;
 import ca.ualberta.ssrg.movies.es.ESMovieManager;
 import ca.ualberta.ssrg.movies.es.Movie;
@@ -22,7 +25,9 @@ public class MainActivity extends Activity {
 	private ListView movieList;
 	private Movies movies;
 	private ArrayAdapter<Movie> moviesViewAdapter;
-	private ESMovieManager movieManager;
+	private ESMovieManager movieManager(String search) {
+		Gson gson = new Gson();
+	};
 	private MoviesController moviesController;
 
 	private Context mContext = this;
@@ -131,8 +136,17 @@ public class MainActivity extends Activity {
 
 
 	class SearchThread extends Thread {
-		// TODO: Implement search thread
-		
+		private String search;
+		public SearchThread(String search) {
+			this.search = search;
+		}
+
+		@Override
+		public void run() {
+			movies.clear();
+			movies.addAll(movieManager.searchMovies());
+		}
+
 	}
 
 	

@@ -1,0 +1,22 @@
+CURL COMMANS:
+curl -XPOST "httpL//cmput301.softwareprocess.es:8080" -d'{
+	//input query here
+}'
+
+
+
+{
+	"id": 1,
+	"title": "One Direction - The Experience",
+	"direction": "One Direction",
+	"year": 2011
+}
+
+{ 
+	"query": {
+		"query_string": {
+			"query": "dark"
+		}
+	} 
+
+}
